@@ -55,6 +55,7 @@ import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
 import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
+import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting.js';
 
 // eslint-disable-next-line ckeditor5-rules/allow-imports-only-from-main-package-entry-point
 import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver.js';
@@ -138,6 +139,7 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		Style,
 		StyledLink,
 		Source,
+		SourceEditing,
 		Subscript,
 		Superscript,
 		Table,
@@ -196,7 +198,8 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 				'styledLink',
 				'fullScreen',
 				'source',
-				'htmlInsert'
+				'sourceEditing',
+				'htmlInsert',
 			]
 		},
 		image: {
