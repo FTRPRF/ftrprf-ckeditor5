@@ -54,7 +54,7 @@ import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
-import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
+import { CodeBlock } from './plugins/ckeditor5-code-block';
 
 // eslint-disable-next-line ckeditor5-rules/allow-imports-only-from-main-package-entry-point
 import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver.js';
