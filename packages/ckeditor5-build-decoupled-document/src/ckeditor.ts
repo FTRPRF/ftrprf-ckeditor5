@@ -54,7 +54,6 @@ import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import { FindAndReplace } from '@ckeditor/ckeditor5-find-and-replace';
 import { RemoveFormat } from '@ckeditor/ckeditor5-remove-format';
-import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 
 // eslint-disable-next-line ckeditor5-rules/allow-imports-only-from-main-package-entry-point
 import ClickObserver from '@ckeditor/ckeditor5-engine/src/view/observer/clickobserver.js';
@@ -71,6 +70,7 @@ import { Modal } from './plugins/modal/index.js';
 // @ts-ignore
 import { StyledLink } from './plugins/styledLink/index.js';
 // @ts-ignore
+import {CodeBlock} from "./plugins/codeblock";
 import { FullScreen } from './plugins/fullScreen/index.js';
 import { Source } from './plugins/source/index.js';
 import { OwnImagePlugin } from './plugins/image/index.js';
@@ -78,6 +78,7 @@ import { RemoveBlockStyle } from './plugins/removeBlockStyle/index.js';
 import { HtmlInsert } from './plugins/htmlInsert/index.js';
 // @ts-ignore
 import { ScratchBlocks } from '@ftrprf/ckeditor5-scratch-blocks/src/index.js';
+import {HtmlEmbed} from "@ckeditor/ckeditor5-html-embed";
 
 export default class DecoupledEditor extends DecoupledEditorBase {
 	public static override builtinPlugins = [
@@ -109,6 +110,7 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		FullScreen,
 		GeneralHtmlSupport,
 		Heading,
+		HtmlEmbed,
 		HtmlInsert,
 		Iframe,
 		Image,
@@ -196,7 +198,8 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 				'styledLink',
 				'fullScreen',
 				'source',
-				'htmlInsert'
+				'htmlInsert',
+				'htmlEmbed'
 			]
 		},
 		image: {
@@ -291,7 +294,14 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 				{ language: 'python', label: 'Python' },
 				{ language: 'json', label: 'JSON' },
 				{ language: 'markdown', label: 'Markdown' },
-				{ language: 'blocks', label: 'Scratch' }
+				{ language: 'blocks', label: 'Scratch' },
+				{ language: 'diff', label: 'Diff' },
+				{ language: 'diff-html', label: 'Diff HTML' },
+				{ language: 'diff-css', label: 'Diff CSS' },
+				{ language: 'diff-javascript', label: 'Diff JavaScript' },
+				{ language: 'diff-python', label: 'Diff Python' },
+				{ language: 'diff-json', label: 'Diff JSON' },
+				{ language: 'diff-markdown', label: 'Diff Markdown' },
 			]
 		},
 
