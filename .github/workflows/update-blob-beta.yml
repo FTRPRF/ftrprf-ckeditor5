@@ -1,0 +1,36 @@
+name: Update CKEditor 5 blob beta
+
+on:
+    push:
+        branches:
+            - upstream-master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: pnpm
+
+            - name: Install workspace dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Build decoupled editor
+              run: pnpm --filter @ckeditor/ckeditor5-editor-decoupled build
+
+            - name: Upload to storage
+              env:
+                  AZURE_STORAGE_ACCOUNT: "ckeditorbuild"
+                  AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BLOB_STORAGE_DEV_CONNECTION_STRING }}
+              run: az storage blob upload -f ./packages/ckeditor5-editor-decoupled/dist/index.js -c \ckeditor -n ckeditor5_beta.js --overwrite
