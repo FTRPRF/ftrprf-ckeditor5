@@ -34,6 +34,11 @@ packages/*/src/**/*.d.ts
 packages/*/src/**/*.js
 packages/*/src/**/*.js.map
 
+# FTRPRF: vendored JS plugins — these are source, not build artifacts.
+!packages/ckeditor5-editor-decoupled/src/plugins/iframe/**/*.js
+!packages/ckeditor5-editor-decoupled/src/plugins/contentTemplates/**/*.js
+!packages/ckeditor5-editor-decoupled/src/plugins/scratchBlocks/**/*.js
+
 # Memory leak test assets.
 scripts/memory/assets/*.js
 scripts/memory/assets/*.css
