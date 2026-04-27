@@ -51,7 +51,8 @@
     "@ckeditor/ckeditor5-watchdog": "workspace:*"
   },
   "scripts": {
-    "build": "node ../../scripts/nim/build-package.mjs"
+    "build": "node ../../scripts/nim/build-package.mjs",
+    "build:browser": "node ./scripts/build-browser.mjs"
   },
   "files": [
     "dist",
