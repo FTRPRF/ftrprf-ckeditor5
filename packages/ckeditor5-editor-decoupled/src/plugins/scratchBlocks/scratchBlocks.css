@@ -1,0 +1,249 @@
+/*-------------------------------------------*/
+/* variables */
+/*-------------------------------------------*/
+:root {
+    --basic-white: white;
+    --basic-black: black;
+    --motion-bg-color: #4c97ff;
+    --motion-border-color: #3373cc;
+    --looks-bg-color: #9966ff;
+    --looks-border-color: #774dcb;
+    --sound-bg-color: #cf63cf;
+    --sound-border-color: #bd42bd;
+    --events-bg-color: #ffbf00;
+    --events-border-color: #cc9900;
+    --control-bg-color: #ffab19;
+    --control-border-color: #cf8b17;
+    --sensing-bg-color: #5cb1d6;
+    --sensing-border-color: #2e8eb8;
+    --operators-bg-color: #59c059;
+    --operators-border-color: #389438;
+    --variables-bg-color: #ff8c1a;
+    --variables-border-color: #db6e00;
+    --myBlocks-bg-color: #ff6680;
+    --myBlocks-border-color: #ff3355;
+}
+
+/*-------------------------------------------*/
+/* scratch blocks */
+/*-------------------------------------------*/
+span.scratchBlock {
+    display: inline-block;
+    position: relative;
+    margin: 15px 20px;
+    color: var(--basic-white);
+    font-family: sans-serif;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+}
+
+span.scratchBlock::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: -15px;
+    height: 38px;
+    width: 54px;
+    z-index: 1;
+    transform: translateY(-9px);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+span.scratchBlock::after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: -15px;
+    height: 38px;
+    left: 20px;
+    z-index: 1;
+    background-position: right;
+    transform: translateY(-9px);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+
+span.scratchBlock span {
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    min-width: 55px;
+}
+
+.blockOption::before {
+    content: " ";
+    display: inline-block;
+    margin-right: 0.2rem;
+    width: 15px;
+    height: 15px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    background-color: var(--basic-white);
+    border: solid 2px var(--basic-black);
+}
+
+/*-------------------------------------------*/
+/* scratch blocks coloring */
+/*-------------------------------------------*/
+/* motion */
+span.scratchBlock.motion,
+.blockOption.motion::before {
+    background-color: var(--motion-bg-color);
+    border-color: var(--motion-border-color);
+}
+span.scratchBlock.motion::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%234c97ff;%7D .st1%7Bfill:%233373cc;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.motion::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%234c97ff;stroke:%233373cc;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* looks */
+span.scratchBlock.looks,
+.blockOption.looks::before {
+    background-color: var(--looks-bg-color);
+    border-color: var(--looks-border-color);
+}
+span.scratchBlock.looks::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%239966FF;%7D .st1%7Bfill:%23774DCB;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.looks::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%239966FF;stroke:%23774DCB;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* sound */
+span.scratchBlock.sound,
+.blockOption.sound::before {
+    background-color: var(--sound-bg-color);
+    border-color: var(--sound-border-color);
+}
+span.scratchBlock.sound::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23cf63cf;%7D .st1%7Bfill:%23bd42bd;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.sound::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23cf63cf;stroke:%23bd42bd;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* events */
+span.scratchBlock.events,
+.blockOption.events::before {
+    background-color: var(--events-bg-color);
+    border-color: var(--events-border-color);
+}
+span.scratchBlock.events::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ffbf00;%7D .st1%7Bfill:%23cc9900;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.events::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23ffbf00;stroke:%23cc9900;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* control */
+span.scratchBlock.control,
+.blockOption.control::before {
+    background-color: var(--control-bg-color);
+    border-color: var(--control-border-color);
+}
+span.scratchBlock.control::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ffab19;%7D .st1%7Bfill:%23cf8b17;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.control::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23ffab19;stroke:%23cf8b17;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* sensing */
+span.scratchBlock.sensing,
+.blockOption.sensing::before {
+    background-color: var(--sensing-bg-color);
+    border-color: var(--sensing-border-color);
+}
+span.scratchBlock.sensing::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%235cb1d6;%7D .st1%7Bfill:%232e8eb8;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.sensing::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%235cb1d6;stroke:%232e8eb8;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* operators */
+span.scratchBlock.operators,
+.blockOption.operators::before {
+    background-color: var(--operators-bg-color);
+    border-color: var(--operators-border-color);
+}
+span.scratchBlock.operators::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%2359c059;%7D .st1%7Bfill:%23389438;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.operators::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%2359c059;stroke:%23389438;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* variables */
+span.scratchBlock.variables,
+.blockOption.variables::before {
+    background-color: var(--variables-bg-color);
+    border-color: var(--variables-border-color);
+}
+span.scratchBlock.variables::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ff8c1a;%7D .st1%7Bfill:%23db6e00;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.variables::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23ff8c1a;stroke:%23db6e00;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/* myBlocks */
+span.scratchBlock.myBlocks,
+.blockOption.myBlocks::before {
+    background-color: var(--myBlocks-bg-color);
+    border-color: var(--myBlocks-border-color);
+}
+span.scratchBlock.myBlocks::after {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 2315.8 57' style='enable-background:new 0 0 2315.8 57;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23ff6680;%7D .st1%7Bfill:%23ff3355;%7D%0A%3C/style%3E%3Cg%3E%3Cpath class='st0' d='M0,0.5h2311.3c2.2,0,4,1.8,4,4v40c0,2.2-1.8,4-4,4H0'/%3E%3Cpath class='st1' d='M2311.3,49H0v-1h2311.2c1.9,0,3.5-1.6,3.5-3.5v-40c0-1.9-1.6-3.5-3.5-3.5H0V0h2311.2c2.5,0,4.5,2,4.5,4.5v40 C2315.8,47,2313.7,49,2311.3,49z'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+span.scratchBlock.myBlocks::before {
+    background-image: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 53.75 57'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23ff6680;stroke:%23ff3355;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M566.36,311.17h-5.25a5.2,5.2,0,0,0-4,2l-4,4a5.2,5.2,0,0,1-4,2h-12a5.2,5.2,0,0,1-4-2l-4-4a5.2,5.2,0,0,0-4-2h-8a4,4,0,0,1-4-4v-40a4,4,0,0,1,4-4h8a5.2,5.2,0,0,1,4,2l4,4a5.2,5.2,0,0,0,4,2h12a5.2,5.2,0,0,0,4-2l4-4a5.2,5.2,0,0,1,4-2h5.25' transform='translate(-512.61 -262.67)'/%3E%3C/svg%3E");
+}
+
+/*-------------------------------------------*/
+/* scratch blocks form */
+/*-------------------------------------------*/
+.ck.ck-scratchBlocks-button-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin: 0.5rem 0 0.25rem;
+}
+.ck.ck-scratchBlocks-button-row .ck.ck-button {
+    border-left: 4px solid transparent;
+}
+.ck.ck-scratchBlocks-button-row .ck.ck-scratchBlocks-button-ok:focus {
+    --ck-focus-ring: 3px solid var(--ck-color-button-save);
+    border-left: 3px solid var(--ck-color-button-save);
+}
+.ck.ck-scratchBlocks-button-row
+    .ck.ck-scratchBlocks-button-ok:hover:not(:focus) {
+    border-left: 4px solid var(--ck-color-button-save);
+}
+.ck.ck-scratchBlocks-button-row .ck.ck-scratchBlocks-button-cancel:focus {
+    --ck-focus-ring: 3px solid var(--ck-color-button-cancel);
+    border-left: 3px solid var(--ck-color-button-cancel);
+}
+.ck.ck-scratchBlocks-button-row
+    .ck.ck-scratchBlocks-button-cancel:hover:not(:focus) {
+    border-left: 4px solid var(--ck-color-button-cancel);
+}
+.ck.ck-scratchBlocks-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+.ck.ck-scratchBlocks-form {
+    padding: 0.5rem;
+}
+.ck-scratchBlocks-form .ck.ck-dropdown {
+    border: 1px solid var(--ck-color-input-border);
+    border-radius: var(--ck-border-radius);
+}
+.ck-scratchBlocks-form .ck.ck-dropdown .ck-button .ck-button__label {
+    width: 100%;
+}

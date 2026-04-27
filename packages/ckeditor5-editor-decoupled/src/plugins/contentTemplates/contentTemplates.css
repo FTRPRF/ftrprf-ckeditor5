@@ -1,0 +1,57 @@
+.ck .content-templates-form {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.ck .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.ck .options .option {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border: 1px solid var(--ck-color-input-border);
+    border-radius: var(--ck-border-radius);
+}
+.ck .options .option:hover {
+    background-color: var(--ck-color-button-default-hover-background);
+}
+.ck .options .option:hover .image {
+    filter: brightness(75%);
+}
+.ck .options .option .image {
+    width: 100px;
+}
+.ck .options .option .title {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+.ck.ck-scratchBlocks-button-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin: 0.5rem 0 0.25rem;
+}
+
+.ck.ck-scratchBlocks-button-row .ck.ck-button {
+    border-left: 4px solid transparent;
+}
+.ck.ck-scratchBlocks-button-row .ck.ck-scratchBlocks-button-ok:focus {
+    --ck-focus-ring: 3px solid var(--ck-color-button-save);
+    border-left: 3px solid var(--ck-color-button-save);
+}
+.ck.ck-scratchBlocks-button-row
+    .ck.ck-scratchBlocks-button-ok:hover:not(:focus) {
+    border-left: 4px solid var(--ck-color-button-save);
+}
+.ck.ck-scratchBlocks-button-row .ck.ck-scratchBlocks-button-cancel:focus {
+    --ck-focus-ring: 3px solid var(--ck-color-button-cancel);
+    border-left: 3px solid var(--ck-color-button-cancel);
+}
+.ck.ck-scratchBlocks-button-row
+    .ck.ck-scratchBlocks-button-cancel:hover:not(:focus) {
+    border-left: 4px solid var(--ck-color-button-cancel);
+}
