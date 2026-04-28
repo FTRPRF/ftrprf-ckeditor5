@@ -61,20 +61,9 @@ import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
 
-// FTRPRF custom plugins.
-import { Exercise } from './plugins/exercise/index.js';
-import { FullScreen } from './plugins/fullScreen/index.js';
-import { HtmlInsert } from './plugins/htmlInsert/index.js';
-import { OwnImagePlugin } from './plugins/image/index.js';
-import { Modal } from './plugins/modal/index.js';
-import { RemoveBlockStyle } from './plugins/removeBlockStyle/index.js';
-import { Source } from './plugins/source/index.js';
-import { StyledLink } from './plugins/styledLink/index.js';
-
-// FTRPRF private plugins (vendored JS — types are inferred via allowJs).
-import { Iframe } from './plugins/iframe/index.js';
-import { contentTemplates as ContentTemplates } from './plugins/contentTemplates/index.js';
-import { ScratchBlocks } from './plugins/scratchBlocks/index.js';
+// FTRPRF plugins are aggregated into a single barrel so this file's plugin
+// list stays compact and the per-plugin churn lives in ./plugins/index.ts.
+import { ftrprfPlugins } from './plugins/index.js';
 
 export default class DecoupledEditor extends DecoupledEditorBase {
 	public static override builtinPlugins = [
@@ -88,20 +77,15 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		CKFinderUploadAdapter,
 		CloudServices,
 		CodeBlock,
-		ContentTemplates,
 		EasyImage,
 		Essentials,
-		Exercise,
 		FindAndReplace,
 		FontBackgroundColor,
 		FontColor,
 		FontFamily,
 		FontSize,
-		FullScreen,
 		GeneralHtmlSupport,
 		Heading,
-		HtmlInsert,
-		Iframe,
 		Image,
 		ImageCaption,
 		ImageInsert,
@@ -118,19 +102,13 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		MediaEmbed,
 		MediaEmbedResize,
 		MediaEmbedToolbar,
-		Modal,
-		OwnImagePlugin,
 		Paragraph,
 		PasteFromOffice,
 		PictureEditing,
-		RemoveBlockStyle,
 		RemoveFormat,
-		ScratchBlocks,
-		Source,
 		SourceEditing,
 		Strikethrough,
 		Style,
-		StyledLink,
 		Subscript,
 		Superscript,
 		Table,
@@ -138,7 +116,8 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		TableProperties,
 		TableToolbar,
 		TextTransformation,
-		Underline
+		Underline,
+		...ftrprfPlugins
 	];
 
 	public static override defaultConfig = {

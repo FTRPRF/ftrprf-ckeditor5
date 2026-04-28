@@ -11,17 +11,6 @@ export { DecoupledEditor } from './decouplededitor.js';
 export { DecoupledEditorUI } from './decouplededitorui.js';
 export { DecoupledEditorUIView } from './decouplededitoruiview.js';
 
-// FTRPRF custom plugins.
-export { Exercise } from './plugins/exercise/index.js';
-export { FullScreen } from './plugins/fullScreen/index.js';
-export { HtmlInsert } from './plugins/htmlInsert/index.js';
-export { OwnImagePlugin } from './plugins/image/index.js';
-export { Modal } from './plugins/modal/index.js';
-export { RemoveBlockStyle } from './plugins/removeBlockStyle/index.js';
-export { Source } from './plugins/source/index.js';
-export { StyledLink } from './plugins/styledLink/index.js';
-
-// FTRPRF private plugins (vendored from @ftrprf/* repos).
-export { Iframe } from './plugins/iframe/index.js';
-export { contentTemplates as ContentTemplates } from './plugins/contentTemplates/index.js';
-export { ScratchBlocks } from './plugins/scratchBlocks/index.js';
+// FTRPRF: single line below — keep extra exports inside ./plugins/index.ts so the
+// patch on this upstream-tracked file stays minimal across syncs.
+export * from './plugins/index.js';
