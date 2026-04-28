@@ -3,9 +3,11 @@
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-licensing-options
  */
 
-// Mirrors the legacy ckeditor5-build-decoupled-document `ckeditor.ts` so the
-// browser UMD bundle is a drop-in replacement: `window.DecoupledEditor` is the
-// editor class with every standard + FTRPRF plugin pre-loaded via `builtinPlugins`.
+// Build entry mirroring the legacy ckeditor5-build-decoupled-document `ckeditor.ts`
+// so the browser UMD bundle is a drop-in replacement: `window.DecoupledEditor` is
+// the editor class with every standard + FTRPRF plugin pre-loaded via `builtinPlugins`.
+// The @module/no-default-export rules target source modules, not build entries.
+/* eslint-disable ckeditor5-rules/validate-module-tag, ckeditor5-rules/no-default-export */
 
 import { DecoupledEditor as DecoupledEditorBase } from './decouplededitor.js';
 
@@ -42,7 +44,7 @@ import {
 import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent';
 import { Link } from '@ckeditor/ckeditor5-link';
 import { List, ListProperties } from '@ckeditor/ckeditor5-list';
-import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
+import { MediaEmbed, MediaEmbedResize, MediaEmbedToolbar } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import {
@@ -114,6 +116,8 @@ export default class DecoupledEditor extends DecoupledEditorBase {
 		List,
 		ListProperties,
 		MediaEmbed,
+		MediaEmbedResize,
+		MediaEmbedToolbar,
 		Modal,
 		OwnImagePlugin,
 		Paragraph,
