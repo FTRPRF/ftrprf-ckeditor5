@@ -29,8 +29,14 @@ jobs:
             - name: Build decoupled editor (browser UMD bundle)
               run: pnpm --filter @ckeditor/ckeditor5-editor-decoupled build:browser
 
-            - name: Upload to storage
+            - name: Upload JS bundle to storage
               env:
                   AZURE_STORAGE_ACCOUNT: "ckeditorbuild"
                   AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BLOB_STORAGE_DEV_CONNECTION_STRING }}
               run: az storage blob upload -f ./packages/ckeditor5-editor-decoupled/dist/browser/ckeditor.umd.js -c \ckeditor -n ckeditor5_beta.js --overwrite
+
+            - name: Upload CSS bundle to storage
+              env:
+                  AZURE_STORAGE_ACCOUNT: "ckeditorbuild"
+                  AZURE_STORAGE_CONNECTION_STRING: ${{ secrets.AZURE_BLOB_STORAGE_DEV_CONNECTION_STRING }}
+              run: az storage blob upload -f ./packages/ckeditor5-editor-decoupled/dist/browser/ckeditor.css -c \ckeditor -n ckeditor5_beta.css --overwrite
