@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>DecoupledEditor — UMD bundle smoke test</title>
+
+	<!-- Built CSS (rolled up by `pnpm --filter @ckeditor/ckeditor5-editor-decoupled build:browser`). -->
+	<link rel="stylesheet" href="../dist/browser/ckeditor.css" />
+
+	<style>
+		body { font: 14px/1.5 system-ui, sans-serif; margin: 24px; max-width: 1100px; }
+		h1 { font-size: 18px; margin: 0 0 12px; }
+		#menubar, #toolbar { background: #fafafa; border: 1px solid #e0e0e0; }
+		#editable { min-height: 320px; padding: 16px; border: 1px solid #e0e0e0; border-top: none; }
+		#status { font-family: ui-monospace, monospace; font-size: 12px; color: #555; margin-top: 12px; }
+		#status.err { color: #c00; }
+	</style>
+</head>
+<body>
+	<h1>DecoupledEditor — UMD bundle smoke test</h1>
+
+	<div id="menubar"></div>
+	<div id="toolbar"></div>
+	<div id="editable"><h2>Hello world</h2><p>Edit me.</p></div>
+	<div id="status">Loading…</div>
+
+	<!-- Built UMD bundle. Exposes the global `DecoupledEditor`. -->
+	<script src="https://ckeditorbuilddev.blob.core.windows.net/ckeditor/ckeditor5_beta.js?2026428"></script>
+
+	<script>
+		const status = document.getElementById( 'status' );
+
+		function fail( msg, err ) {
+			status.className = 'err';
+			status.textContent = msg + ( err ? ': ' + err.message : '' );
+			if ( err ) {
+				console.error( err );
+			}
+		}
+
+		if ( typeof window.DecoupledEditor !== 'function' ) {
+			fail( 'window.DecoupledEditor is not the editor class — did the UMD bundle load?' );
+		} else {
+			// Stub callbacks for plugins that read editor.config._config.X.onOpen unconditionally.
+			const stub = name => ( {
+				onOpen: () => console.log( name + '.onOpen' ),
+				onClose: () => console.log( name + '.onClose' )
+			} );
+
+			// All plugins are baked in via builtinPlugins + defaultConfig — same as the legacy
+			// ckeditor5-build-decoupled-document. Just supply the per-plugin config callbacks.
+			window.DecoupledEditor.create( document.getElementById( 'editable' ), {
+				licenseKey: 'GPL',
+				exercise: stub( 'exercise' ),
+				fullScreen: stub( 'fullScreen' ),
+				htmlInsert: stub( 'htmlInsert' ),
+				modal: stub( 'modal' ),
+				ownImage: stub( 'ownImage' ),
+				removeBlockStyle: stub( 'removeBlockStyle' ),
+				source: stub( 'source' ),
+				styledLink: stub( 'styledLink' ),
+				iframe: { toolbar: [ 'iframe' ] }
+			} ).then( editor => {
+				const ui = editor.ui.view;
+				document.getElementById( 'menubar' ).appendChild( ui.menuBarView.element );
+				document.getElementById( 'toolbar' ).appendChild( ui.toolbar.element );
+				window.editor = editor;
+				status.textContent = 'Editor ready. Globals: window.editor, window.DecoupledEditor';
+			} ).catch( err => fail( 'Editor.create() rejected', err ) );
+		}
+	</script>
+</body>
+</html>

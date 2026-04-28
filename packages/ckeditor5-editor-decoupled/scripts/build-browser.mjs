@@ -9,7 +9,7 @@
 import { build } from '@ckeditor/ckeditor5-dev-build-tools';
 
 await build( {
-	input: 'src/index.ts',
+	input: 'src/ckeditor.ts',
 	output: 'dist/browser/ckeditor.js',
 	tsconfig: 'tsconfig.build.json',
 	external: [],
