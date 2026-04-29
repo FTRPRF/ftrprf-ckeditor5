@@ -342,6 +342,15 @@ export class WidgetResizer extends /* #__PURE__ */ ObservableMixin() {
 	 * Cleans up the context state.
 	 */
 	private _cleanup(): void {
+		// `_sizeView` is assigned inside `_appendSizeUI()` which runs in the deferred render
+		// callback registered by `attach()`, and `_initialViewWidth` is assigned by `begin()`.
+		// `destroy()` → `cancel()` → `_cleanup()` can run before either, e.g. when a widget
+		// element is removed in the same model→view sync that created its resizer. Bail in
+		// that case — there's no UI or initial width to restore.
+		if ( !this._sizeView ) {
+			return;
+		}
+
 		this._sizeView._dismiss();
 
 		const editingView = this._options.editor.editing.view;

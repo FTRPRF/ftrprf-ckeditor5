@@ -52,6 +52,22 @@ is still applied.
 Higher-risk patches: we modify upstream source inside another package.
 **These are the entries to walk first** during a sync.
 
+### `packages/ckeditor5-widget/src/widgetresize/resizer.ts`
+
+- **Patch:** early-return from `WidgetResizer._cleanup()` when `_sizeView`
+  is undefined.
+- **Effect:** prevents a TypeError (`Cannot read properties of undefined
+  (reading '_dismiss')`) when `destroy()` → `cancel()` → `_cleanup()` runs
+  before `attach()`'s deferred render callback has set `_sizeView` (e.g.
+  when a widget element is removed in the same model→view sync that
+  created its resizer).
+- **Why:** observed crash in MediaEmbedResize flows; the upstream code
+  path assumes `attach()` always wins the race against `destroy()`.
+- **Drop condition:** when upstream adds an equivalent guard (or
+  reorders so `_sizeView` is always assigned before `_cleanup()` can
+  run). Track via the `WidgetResizer` source — if it grows its own
+  null-check, drop ours.
+
 ### `packages/ckeditor5-media-embed/src/mediaembedresize/mediaembedresizeediting.ts`
 
 - **Patch:** removed the `licenseFeatureCode` getter (returned `'MER'`) and
